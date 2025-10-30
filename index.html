@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diki STR - Jasa Pembuatan Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0a0a1a;
+            color: white;
+            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Background Anime */
+        .anime-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .anime-character {
+            position: absolute;
+            width: 150px;
+            height: 200px;
+            background-size: contain;
+            background-repeat: no-repeat;
+            opacity: 0.7;
+            animation: float 15s infinite linear;
+        }
+
+        .char1 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1496/1496034.png');
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .char2 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1496/1496037.png');
+            top: 60%;
+            right: 5%;
+            animation-delay: 3s;
+            animation-duration: 20s;
+        }
+
+        .char3 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1496/1496039.png');
+            bottom: 10%;
+            left: 20%;
+            animation-delay: 7s;
+            animation-duration: 18s;
+        }
+
+        .char4 {
+            background-image: url('https://cdn-icons-png.flaticon.com/512/1496/1496042.png');
+            top: 30%;
+            right: 15%;
+            animation-delay: 5s;
+            animation-duration: 25s;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-20px) translateX(10px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(0) translateX(20px) rotate(0deg);
+            }
+            75% {
+                transform: translateY(20px) translateX(10px) rotate(-5deg);
+            }
+            100% {
+                transform: translateY(0) translateX(0) rotate(0deg);
+            }
+        }
+
+        /* Container Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            z-index: 1;
+            position: relative;
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            padding: 40px 0;
+            background: rgba(10, 10, 30, 0.7);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 25px rgba(0, 0, 255, 0.3);
+            border: 1px solid rgba(100, 100, 255, 0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+            color: #6a5acd;
+            text-shadow: 0 0 10px rgba(106, 90, 205, 0.7);
+            animation: glow 2s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px rgba(106, 90, 205, 0.7);
+            }
+            to {
+                text-shadow: 0 0 20px rgba(106, 90, 205, 1), 0 0 30px rgba(106, 90, 205, 0.8);
+            }
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #b19cd9;
+            margin-bottom: 10px;
+        }
+
+        .owner {
+            font-size: 1.2rem;
+            color: #9370db;
+            margin-top: 10px;
+        }
+
+        /* Section Layanan */
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(20, 20, 40, 0.8);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(100, 100, 255, 0.3);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(106, 90, 205, 0.4);
+        }
+
+        .service-title {
+            font-size: 1.8rem;
+            color: #9370db;
+            margin-bottom: 15px;
+            text-align: center;
+            border-bottom: 2px solid #6a5acd;
+            padding-bottom: 10px;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #ffd700;
+            text-align: center;
+            margin: 15px 0;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .features {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+
+        .features li {
+            padding: 10px 0;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.2);
+            position: relative;
+            padding-left: 30px;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #6a5acd;
+            font-weight: bold;
+        }
+
+        /* Tombol */
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(45deg, #6a5acd, #9370db);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(106, 90, 205, 0.4);
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #9370db, #6a5acd);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(106, 90, 205, 0.6);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        /* Promo Section */
+        .promo {
+            text-align: center;
+            padding: 30px;
+            background: rgba(106, 90, 205, 0.2);
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 1px solid rgba(106, 90, 205, 0.5);
+        }
+
+        .promo h2 {
+            font-size: 2.2rem;
+            color: #ffd700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .promo p {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info {
+            font-size: 1.5rem;
+            color: #ffd700;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #b19cd9;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .services {
+                flex-direction: column;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .service-card {
+                min-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background Anime -->
+    <div class="anime-bg">
+        <div class="anime-character char1"></div>
+        <div class="anime-character char2"></div>
+        <div class="anime-character char3"></div>
+        <div class="anime-character char4"></div>
+    </div>
+
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <h1>SELAMAT DATANG</h1>
+            <p class="subtitle">DI WEBSITE DIKI STR</p>
+            <p class="owner">Owner: 6282124306136 - Diki Str</p>
+        </header>
+
+        <!-- Layanan Jasa Pembuatan Web Payment -->
+        <div class="services">
+            <div class="service-card">
+                <h2 class="service-title">JASA PEMBUATAN WEB PAYMENT</h2>
+                <div class="price">PRINCE 7K</div>
+                <ul class="features">
+                    <li>BISA REK NO DANA LU</li>
+                    <li>BISA REK NO GOPAY LU</li>
+                </ul>
+                <button class="btn">CLIK BUTTON</button>
+            </div>
+
+            <div class="service-card">
+                <h2 class="service-title">JASA PEMBUATAN WEB PAYMENT</h2>
+                <div class="price">ALLPAY 10K</div>
+                <ul class="features">
+                    <li>BISA REK NO DANA LU</li>
+                    <li>BISA REK NO GOPAY LU</li>
+                    <li>BISA REK QR LU</li>
+                    <li>DAN ALLPAY LU</li>
+                </ul>
+                <button class="btn">CLIK BUTTON</button>
+            </div>
+        </div>
+
+        <!-- Layanan Murid Web Payment -->
+        <div class="services">
+            <div class="service-card">
+                <h2 class="service-title">MURID WEB PAYMENT</h2>
+                <div class="price">PRINCE HARGA 15K</div>
+                <ul class="features">
+                    <li>DI AJARIN SAMPE BISA</li>
+                    <li>SI KASI VID TUTORIAL</li>
+                    <li>DAN DI MASI PROMPT</li>
+                    <li>DLL</li>
+                </ul>
+                <button class="btn">CLIK BUTTON</button>
+            </div>
+        </div>
+
+        <!-- Promo Section -->
+        <div class="promo">
+            <h2>BURUAAN ORDER & PESAN DI KASI PROMO</h2>
+            <p>KE NO :</p>
+            <div class="contact-info">6282124306136</div>
+            <p>TEXT: "BANG MAU ORDER"</p>
+            <button class="btn">ORDER SEKARANG</button>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2023 Diki STR - Jasa Pembuatan Website</p>
+        </footer>
+    </div>
+
+    <script>
+        // Animasi tombol
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                // Efek animasi klik
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+                
+                // Aksi setelah klik (bisa diganti dengan redirect atau fungsi lainnya)
+                alert('Terima kasih! Silakan hubungi 6282124306136 untuk pemesanan.');
+            });
+        });
+
+        // Animasi karakter anime tambahan
+        document.addEventListener('DOMContentLoaded', function() {
+            const chars = document.querySelectorAll('.anime-character');
+            chars.forEach(char => {
+                char.style.left = Math.random() * 80 + '%';
+                char.style.top = Math.random() * 80 + '%';
+            });
+        });
+    </script>
+</body>
+</html>
